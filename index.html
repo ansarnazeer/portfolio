@@ -5,9 +5,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css ">
-   
+    <title>Mohammed Ansar | Full-Stack Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Icons -->
@@ -17,7 +17,15 @@
     <!-- devicon logo -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-
+    <!-- Set theme before paint to avoid flash of wrong theme -->
+    <script>
+        (function () {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
 </head>
 
@@ -31,9 +39,13 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#tools">Tools</a></li>
-                <li><a href="#qualification">Qualification</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
+            </button>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -66,7 +78,7 @@
 
         <!-- Profile  -->
         <div class="profile">
-            <img src="/IMG_8074.JPG.jpeg" alt="Profile Photo">
+            <img src="IMG_8074.JPG.jpeg" alt="Profile Photo">
 
         </div>
     </section>
@@ -78,7 +90,7 @@
         <div class="about-container">
             <!-- left image -->
             <div class="about-img">
-                <img src="/side.jpg" alt="About Me">
+                <img src="side.jpg" alt="About Me">
             </div>
 
             <!-- right content -->
@@ -105,7 +117,7 @@
                 </div>
 
                 <!-- CV button -->
-                <a href="/ansar_cv.pdf" download class="button">
+                <a href="ansar_cv.pdf" download class="button">
                     Download CV <i class="fa-solid fa-download"></i>
                 </a>
             </div>
@@ -119,35 +131,62 @@
 
     <section class="skills" id="skills">
         <h2 class="title-skills">Skills & <br> Proficiencies</h2>
-        <span class="subtitle-skills"></span>
+        <span class="subtitle-skills">Technologies I work with</span>
 
-        <div class="skill-container">
-            <div class="skill">
-                <div class="skill-details">
-                    <div class="skill-name">Frontend Development</div>
-                    <div class="percentage">70%</div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-fill Month-End-Year-End-Closing"></div>
-                </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-html5-plain colored"></i></div>
+                <h3 class="skill-card-title">HTML</h3>
+                <p class="skill-card-desc">Semantic, accessible markup that forms a solid structural foundation for
+                    every project.</p>
             </div>
 
-            <div class="skill">
-                <div class="skill-details">
-                    <div class="skill-name">Backend Development</div>
-                    <div class="percentage">50%</div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-fill Vendor-Customer-Reconciliation"></div>
-                </div>
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-css3-plain colored"></i></div>
+                <h3 class="skill-card-title">CSS</h3>
+                <p class="skill-card-desc">Responsive layouts, animations, and modern styling with Flexbox and Grid.
+                </p>
             </div>
 
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-javascript-plain colored"></i></div>
+                <h3 class="skill-card-title">JavaScript</h3>
+                <p class="skill-card-desc">Building interactive, dynamic experiences with clean and efficient logic.
+                </p>
+            </div>
 
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-react-original colored"></i></div>
+                <h3 class="skill-card-title">React JS</h3>
+                <p class="skill-card-desc">Component-based UIs with reusable, maintainable, and scalable code.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-nodejs-plain colored"></i></div>
+                <h3 class="skill-card-title">Node.js</h3>
+                <p class="skill-card-desc">Server-side logic, REST APIs, and backend services built for performance.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-mongodb-plain colored"></i></div>
+                <h3 class="skill-card-title">MongoDB</h3>
+                <p class="skill-card-desc">Designing and managing flexible, document-based databases.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-python-plain colored"></i></div>
+                <h3 class="skill-card-title">Python</h3>
+                <p class="skill-card-desc">Problem-solving, scripting, and data-driven programming fundamentals.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon-circle"><i class="devicon-git-plain colored"></i></div>
+                <h3 class="skill-card-title">GitHub</h3>
+                <p class="skill-card-desc">Version control and collaborative workflows for reliable project delivery.
+                </p>
+            </div>
         </div>
-        
-
-        
-
 
     </section>
 
@@ -185,6 +224,70 @@
         </section>
 
         <!-- tools -->
+
+        <!-- projects -->
+
+        <section class="projects" id="projects">
+            <h2 class="title-projects">Projects</h2>
+            <span class="subtitle-projects">Things I've built</span>
+
+            <div class="project-slider">
+                <button class="slider-arrow prev" id="prevProject" aria-label="Previous project">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="project-slides">
+
+                    <!-- Project 1: Bakery POS System -->
+                    <div class="project-slide active" data-index="0">
+                        <a class="project-thumb-link" href="https://bakery-pos-system-woad.vercel.app"
+                            target="_blank" rel="noopener" aria-label="Open Bakery POS System live demo">
+                            <div class="project-thumb">
+                                <i class="fa-solid fa-cookie-bite thumb-icon"></i>
+                                <span class="thumb-text">BAKERY<br>POS</span>
+                            </div>
+                        </a>
+                        <h3 class="project-title">Bakery POS System</h3>
+                        <p class="project-desc">Login/register, revenue analytics dashboard, billing with cart &
+                            receipt printing, and role-based access for Admin, Cashier & Staff.</p>
+                        <div class="project-links">
+                            <a href="https://bakery-pos-system-woad.vercel.app" target="_blank" rel="noopener"
+                                class="live-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Interior Design Studio Website -->
+                    <div class="project-slide" data-index="1">
+                        <a class="project-thumb-link" href="https://interior-designers-web.vercel.app/"
+                            target="_blank" rel="noopener" aria-label="Open Interior Design Studio Website">
+                            <div class="project-thumb">
+                                <i class="fa-solid fa-couch thumb-icon"></i>
+                                <span class="thumb-text">THORNBURY<br>& HALE</span>
+                            </div>
+                        </a>
+                        <h3 class="project-title">Interior Design Studio Website</h3>
+                        <p class="project-desc">An elegant landing page for an interior design atelier, showcasing
+                            services and portfolio pieces with a clean, premium visual layout.</p>
+                        <div class="project-links">
+                            <a href="https://interior-designers-web.vercel.app/" target="_blank" rel="noopener"
+                                class="live-link">Live Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="slider-arrow next" id="nextProject" aria-label="Next project">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="slider-dots" id="projectDots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+            </div>
+        </section>
 
         <!-- qualification -->
 
@@ -268,12 +371,6 @@
                     <button type="submit" class="btn">Send Message ➤</button>
                 </form>
 
-                <script>
-                    document.querySelector('.contact-form').addEventListener('submit', function (e) {
-                        e.preventDefault(); // stops reload
-                        alert('Message not sent (demo mode)'); // optional feedback
-                    });
-                </script>
             </div>
 
         </section>
@@ -288,23 +385,12 @@
                 </div>
                 <div class="footer-right">
                     <a href="#tools">Tools</a>
-                    <a href="#portfolio">Portfolio</a>
+                    <a href="#projects">Projects</a>
                     <a href="#contact">Contact Me</a>
                 </div>
             </div>
             <p class="copyright">© Ansar. All rights reserved</p>
         </footer>
-        <script> const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('open');
-            });
-        </script>
-
-
-
 
         <script src="script.js"></script>
 
