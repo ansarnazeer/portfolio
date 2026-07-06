@@ -295,6 +295,7 @@ img {
 .section-title,
 .title-skills,
 .title-tools,
+.title-services,
 .title-projects,
 .title-qualification,
 .title-contact {
@@ -305,12 +306,15 @@ img {
 .section-title { font-size: 2rem; margin-bottom: 0.5rem; }
 .title-skills { font-size: 2rem; margin-top: 50px; margin-bottom: 0.5rem; }
 .title-tools { font-size: 2rem; margin-top: 3rem; margin-bottom: 3rem; }
+.title-services { font-size: 2rem; margin-top: 3rem; margin-bottom: 0.5rem; }
 .title-projects { font-size: 2rem; margin-top: 3rem; margin-bottom: 0.5rem; }
 .title-qualification { font-size: 2rem; margin-top: 5rem; margin-bottom: 3rem; }
 .title-contact { font-size: 2rem; margin-top: 7rem; margin-bottom: 0.3rem; }
 
 .section-subtitle,
 .subtitle-skills,
+.subtitle-tools,
+.subtitle-services,
 .subtitle-projects,
 .subtitle-contact {
   display: block;
@@ -436,7 +440,7 @@ img {
 }
 
 /* =========================
-   TOOLS
+   TOOLS (editorial list, no cards)
    ========================= */
 .tools {
   text-align: center;
@@ -444,48 +448,196 @@ img {
   margin-top: 3rem;
 }
 
-.card-container {
+.tools-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 4rem;
+  flex-direction: column;
+  max-width: 780px;
+  margin: 3rem auto 0;
   padding: 0 5%;
+  border-top: 1px solid var(--border);
 }
 
-.card {
-  background: var(--card-bg);
-  padding: 25px;
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px var(--card-shadow);
+.tool-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 50px 1fr auto;
+  align-items: center;
+  gap: 22px;
+  padding: 20px 14px;
+  border-bottom: 1px solid var(--border);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, var(--transition-theme);
+  overflow: hidden;
+  transition: padding-left 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.tool-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s ease;
 }
 
-.card:active {
-  transform: translateY(-2px) scale(0.98);
+.tool-row:hover {
+  padding-left: 24px;
 }
 
-.icon {
-  font-size: 30px;
-  margin-bottom: 15px;
+.tool-row:hover::before {
+  transform: scaleY(1);
+  transform-origin: top;
 }
 
-.card h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-  color: var(--text-strong);
-}
-
-.card p {
+.tool-row-index {
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--text-muted);
-  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.tool-row:hover .tool-row-index {
+  color: var(--accent);
+}
+
+.tool-row-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--accent);
+  transition: transform 0.35s ease;
+}
+
+.tool-row:hover .tool-row-icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.tool-row-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.tool-row-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* =========================
+   SERVICES (modern list, not boxed cards)
+   ========================= */
+.services {
+  padding: 30px 20px 10px;
+}
+
+.services-list {
+  max-width: 880px;
+  margin: 3rem auto 0;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 44px 60px 1fr 24px;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 18px;
+  border-bottom: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: default;
+  transition: background-color 0.35s ease, padding-left 0.35s ease, transform 0.2s ease;
+}
+
+.service-row:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.service-row:hover {
+  background-color: var(--input-bg);
+  padding-left: 28px;
+}
+
+.service-row:active {
+  transform: scale(0.995);
+}
+
+.service-number {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.55;
+  font-family: 'Poppins', sans-serif;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.service-row:hover .service-number {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.service-icon-circle {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  background: var(--input-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--accent);
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.service-row:hover .service-icon-circle {
+  transform: rotate(-8deg) scale(1.08);
+  background: var(--accent);
+  color: #fff;
+}
+
+.service-text {
+  min-width: 0;
+}
+
+.service-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.service-row:hover .service-title {
+  color: var(--accent);
+}
+
+.service-desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.service-arrow {
+  color: var(--accent);
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-row:hover .service-arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* =========================
@@ -1042,6 +1194,39 @@ textarea::placeholder {
   .project-desc {
     font-size: 0.9rem;
   }
+
+  .service-row {
+    grid-template-columns: 46px 1fr;
+    row-gap: 4px;
+    padding: 22px 12px;
+  }
+
+  .service-row:hover {
+    padding-left: 16px;
+  }
+
+  .service-number {
+    display: none;
+  }
+
+  .service-icon-circle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 17px;
+  }
+
+  .service-title {
+    font-size: 1rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+  }
+
+  .service-arrow {
+    display: none;
+  }
 }
 
 /* Small Mobile (max-width: 480px) */
@@ -1070,6 +1255,22 @@ textarea::placeholder {
 
   .skills-grid {
     padding: 0 15px;
+  }
+
+  .tools-list {
+    padding: 0 15px;
+  }
+
+  .tool-row {
+    grid-template-columns: 30px 40px 1fr;
+    gap: 14px;
+    padding: 16px 10px;
+  }
+
+  .tool-row-tag {
+    grid-column: 2 / 4;
+    padding-left: 54px;
+    font-size: 0.7rem;
   }
 
   .contact-container {
